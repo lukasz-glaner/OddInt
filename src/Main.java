@@ -4,23 +4,25 @@ import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
-        Integer[] listOfIntegers = {1, 5, 2, 2, 3, 3, 3, 4, 4, 3, 3, 3, 2, 2, 1};
+        int[] listOfIntegers = {1, 5, 2, 2, 3, 3, 3, 4, 4, 3, 3, 3, 2, 2, 1};
         System.out.println(findOddNumber(listOfIntegers));
     }
 
-    public static Integer findOddNumber(Integer[] integerArray) {
-        Set<Integer> integerSet = new TreeSet<>(Arrays.asList(integerArray));
-
+    public static int findOddNumber(int[] integerArray) {
+        Set<Integer> integerSet = new TreeSet<>();
+        for (int i : integerArray) {
+            integerSet.add(i);
+        }
         int countOfAppears;
-        for (Integer integer : integerSet
+        for (int integer : integerSet
         ) {
             countOfAppears = 0;
-            for (Integer value : integerArray) {
-                if (integer.equals(value))
+            for (int value : integerArray) {
+                if (integer == value)
                     countOfAppears++;
             }
             if (countOfAppears % 2 == 1) return integer;
         }
-        return null;
+        return 0;
     }
 }
